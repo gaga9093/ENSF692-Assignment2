@@ -1,18 +1,11 @@
-# input_processing.py
 # Alireza Ghasemi, ENSF 692 P24
-# A terminal-based program for processing computer vision changes detected by a car.
-# Detailed specifications are provided via the Assignment 2 README file.
-# You must include the code provided below but you may delete the instructional comments.
-# You may add your own additional classes, functions, variables, etc. as long as they do not contradict the requirements (i.e. no global variables, etc.). 
-# You may import any modules from the standard Python library.
-# Remember to include your name and comments.
-
-
-
+#The program defines a `Sensor` class to monitor and update the status of traffic lights, pedestrians, and vehicles, providing corresponding actions and statuses based on user input. 
+#It uses variables such as `traffic_light`, `pedestrian`, and `vehicle` to store and manage the states of these entities. 
+#I used ChatGPT to help me understand and write my code and debug it.
 # No global variables are permitted
 
 
-
+#defining the class Sensor.
 class Sensor:
 
     # Constructor including the initial values added.
@@ -28,17 +21,17 @@ class Sensor:
         else:
             raise ValueError("Invalid traffic light color")
 
-    # using the below function to update traffic light status.
+    # using the below function to update pedestrain status.
     def update_pedestrian(self, status):
         if status in ['yes', 'no']:
-            self.pedestrain = status =="yes"
+            self.pedestrain = status =="yes" #the reason for adding this =="yes" part at the end is that to make the function boolean in action meaning that if the result of the input for pedestrain is yes meaning tru do the action required.
         else:
             raise ValueError("Invalid pedestrian status")
 
-        # using the below function to update traffic light status.
+        # using the below function to update vehicle status.
     def update_vehicle(self, status):
         if status in ['yes', 'no']:
-            self.vehicle = status == "yes"
+            self.vehicle = status == "yes"#the reason for adding this =="yes" part at the end is that to make the function boolean in action meaning that if the result of the input for vehicle is yes meaning tru do the action required.
         else:
             raise ValueError("Invalid vehicle status")
 
@@ -56,6 +49,7 @@ class Sensor:
         print(f"Pedestrian: {'Yes' if self.pedestrain else 'No'}")
         print(f"Vehicle: {'Yes' if self.vehicle else 'No'}")
 
+#main function to execute the program.
 def main():
     print("\n***ENSF 692 Car Vision Detector Processing Program***\n")
     sensor = Sensor()
